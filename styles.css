@@ -1,10 +1,42 @@
+.grid {
+	width: 606px;
+	height: 606px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.square {
+	height: 200px;
+	width: 200px;
+	border: solid black 1px;
+  background: blue;
+}
+
+.mole {
+	/* background-image: url("./images/mole.png");
+	background-size: cover; */
+  background: red;
+}
+
+
+
+
+
+
+
+
+
+
+/* -------------------   Notion   ----------------------- 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 html {
   font-size: 35px;
   background: #98bcf4;
   font-family: Calibri;  
-  background-image: url("background.jpg");
+  background-image: url("./images/background1.jpg");
   background-size:120%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -51,23 +83,23 @@ h1 {
 
 .hole:after {
   display: block;
-  background: url(dirt.png) bottom center no-repeat;
+  background: url("./images/dirt2.png") bottom center no-repeat;
   background-size: contain;
   content: "";
-  width: 100%;
-  height: 90px;
+  width: 50%;
+  height: auto;
   position: absolute;
   z-index: 2;
   bottom: -30px;
 }
 
 .mole {
-  background: url("mole.png") bottom center no-repeat;
+  background: url("./images/mole.png") bottom center no-repeat;
   background-size: 80%;
   position: absolute;
   top: 100%;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: auto;
   transition: all 0.4s;
 }
 
@@ -136,7 +168,7 @@ button {
 
   .hole:after {
     display: block;
-    background: url(dirt.png) bottom center no-repeat;
+    background: url("./images/dirt2.png") bottom center no-repeat;
     background-size: contain;
     content: "";
     max-width: 70%;
@@ -147,7 +179,7 @@ button {
   }
 
   .mole {
-    background: url("mole.png") bottom center no-repeat;
+    background: url("./images/mole.png") bottom center no-repeat;
     background-size: 60%;
     position: absolute;
     top: 100%;
@@ -159,4 +191,4 @@ button {
   .hole.up .mole {
     top: 50px;
   }
-}
+} */
