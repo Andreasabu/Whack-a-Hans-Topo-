@@ -1,15 +1,16 @@
-//Array de elementos con la clase hole
-const holes = document.querySelectorAll(".hole"); 
-//Array de elementos con la clase mole
-const moles = document.querySelectorAll(".mole");
 
+const holes = document.querySelectorAll(".hole"); 
+const mole = document.querySelector(".mole");
+const timeLeft = document.querySelector("#timeLeft")
 const scoreBoard = document.getElementsByClassName("score");
 
-let lastHole;
+/* let lastHole;
 
-let isFinished = false;
+let isFinished = false; */
 
-let score = 0;
+// let score = 0;
+let result = 0
+
 
 const timeForHansTopo = () => {
     //Esta función creará el tiempo randomizado para que los Hans Topo salgan de los hoyos aleatoriamente
@@ -17,8 +18,13 @@ const timeForHansTopo = () => {
 }
 
 const randomHole = () => {
-    //Esta función servirá para conseguir que el tiempo de los topos sea diferente para cada agujero con respecto al anterior
+    holes.forEach(hole => {
+        hole.classList.remove("mole") //se remueven los topos
+    })
+   let randomPosition = holes[Math.floor(Math.random()*6)] //recorre aleatoriamente y multiplicar el numero de ollos y redondea, porque multiplica.
+   randomPosition.classList.add("mole")
 }
+randomHole();
 
 const timeOutside = () => {
     //Esta función determina el tiempo que los topos deben estar asomados
