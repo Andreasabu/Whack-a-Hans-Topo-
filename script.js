@@ -11,13 +11,13 @@ const startGame = () => {
   //Creamos las variables con los valores iniciales del juego
   let result = 0; //0 puntos
   let hitPosition; //Posición donde está el topo
-  let currentTime = 60; //Tiempo máximo de juego en segundos
+  let currentTime = 15; //Tiempo máximo de juego en segundos
   let timerId = null;
 
   /* Creamos el topo */
   const mole = document.createElement("div");
   mole.innerHTML = `
-<img src="./images/mole.png" height="200" width="200">
+<img src="./images/mole.png" height="95" width="90">
 `;
 
   function randomSquare() {
@@ -63,9 +63,10 @@ const startGame = () => {
       /* Añadimos etiquetas para que indique la puntuación final del juego */
       gameOver.innerHTML = `
         <h2>GAME OVER!</h2>
-        <h5 class="caja">Puntuación: ${result}</h5>
-        <p class="caja2">Tu invento te ha ganado</p>
+        <h5 class="caja">Final score: ${result}</h5>
+        <p class="caja2">your invention has won you over</p>
         `;
+        
     }
   }
 
