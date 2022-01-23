@@ -1,5 +1,4 @@
 
-
 body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #040303;
@@ -45,11 +44,13 @@ body{
 }
 
 .grid {
-	width: 390px;
-	height: 390px;
-	display: flex;
-	flex-wrap: wrap;
+  width: 390px;
+  height: 390px;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0.3rem auto;
+  row-gap: 18px;
+  align-content: center;
 }
 .gameOver h2, p, h5{
   margin: 0;
@@ -186,10 +187,10 @@ body{
 }
 .gameInfo button {
   justify-content: center;
-  background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
+  background: linear-gradient(to bottom, #d64534 5%, #39100c 100%);
   background-color: #ededed;
   border-radius: 3px;
-  border: 1px solid #571f74;
+  border: 1px solid #ca382c;
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -200,43 +201,40 @@ body{
   line-height: 1;
 }
 .gameInfo button:hover {
-  background: linear-gradient(to bottom, #7e3382 5%, #0f010d 100%);
-  transition: 1s;
+    background: linear-gradient(to bottom, #ca382c 5%, #0f010d 100%);
+    transition: 1s;
 }
 body { 
   cursor: url('./images/cursor-freak.svg')
 , auto; 
 }
 .orden--gameOver {
-  position: absolute;
-  background: #2e0840;
-  padding: 10px;
-  border-radius: 11px;
-  justify-content: center;
-  background: linear-gradient(to bottom, #cb2d5b 5%, #9b141a 100%);
-  background-color: #ededed;
-  border-radius: 3px;
-  border: 3px solid #6e0d24;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  text-align: center;
-  width: 550px;
-  left: 50%;
-  top: 405px;
-  font-size: 17px;
-  text-decoration: none;
-  font-family: 'Orbitron', sans-serif;
-  padding: 10px 25px 13px 25px;
-  line-height: 1;
-  margin-left: -275px;
+    position: absolute;
+    justify-content: center;
+    background: linear-gradient(to bottom, #cb2d5b 5%, #9b141a 100%);
+    background-color: #ededed;
+    border-radius: 12px;
+    box-shadow: 2px 2px 13px black;
+    border: 3px solid #6e0d24;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+    width: 550px;
+    left: 50%;
+    top: 405px;
+    font-size: 17px;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    padding: 10px 25px 13px 25px;
+    line-height: 1;
+    margin-left: -275px;
 }
 .square {
   margin: 0px 15px 15px 15px;
   height: 80px;
   width: 100px;
   position: relative;
-  cursor: pointer;
   padding: 10px;
   justify-content: center;
   background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
@@ -245,6 +243,7 @@ body {
   box-shadow: 2px 2px 5px black;
   border: 2px solid #571f74;
   cursor: url(./images/pow.svg) , auto!important;
+  transition: 0.5s;
 }
 .square:hover {
   padding: 10px;
@@ -283,19 +282,20 @@ p.p-info {
   line-height: 25px;
 }
 button#reload {
-  justify-content: center;
-  color: #ffffff;
-  text-align: center;
-  font-size: 11px;
-  text-decoration: none;
-  background: linear-gradient(to bottom, #16011c 5%, #73208b 100%);
-  background-color: #ededed;
-  border-radius: 3px;
-  border: 2px solid #16011c;
-  display: inline-block;
-  margin-top: 5px;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  padding: 5px 15px 5px 15px;
-  line-height: 1;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    background: linear-gradient(to bottom, #16011c 5%, #73208b 100%);
+    background-color: #ededed;
+    border: 2px solid #16011c;
+    display: inline-block;
+    margin-top: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    padding: 5px 15px 5px 15px;
+    line-height: 1;
+    border-radius: 9px;
 }
