@@ -4,13 +4,11 @@ const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
 const reload = document.querySelector(".reload");
 const gameOver = document.querySelector(".gameOver");
-const musicStarGame = new Audio('./musica/musicaStart.mp3');
-const shootGame = new Audio('./musica/scifi002.mp3');
-
+const musicStarGame = new Audio("./musica/musicaStart.mp3");
+const shootGame = new Audio("./musica/scifi002.mp3");
 
 //Función que ejecuta el juego
 const startGame = () => {
-
   //Creamos las variables con los valores iniciales del juego
   let result = 0; //0 puntos
   let hitPosition; //Posición donde está el topo
@@ -40,29 +38,27 @@ const startGame = () => {
     square.addEventListener("click", () => {
       //Si el usuario ha dado click en el agujero donde está el top
       if (square.id == hitPosition) {
-        
-    square.firstChild.innerHTML = `
+        square.firstChild.innerHTML = `
         <img class="mole" src="./images/aliens/08.svg" >
     `;
-    if (result >= 5) {
-      square.firstChild.innerHTML = `
+        if (result >= 5) {
+          square.firstChild.innerHTML = `
         <img class="mole" src="./images/aliens/04.svg" >
     `;
-    }
-    shootGame.play();
+        }
+        shootGame.play();
         result++; //Sumamos un punto
         score.textContent = result;
         hitPosition = null; //Cambiamos la posición del topo (por eso le damos el valor de null para que no pise)
         square.removeChild(mole); //Eliminamos al topo de ese agujero
       }
     });
-    
   });
-  // Función para calcular el tiempo en el que salen los topos 
+  // Función para calcular el tiempo en el que salen los topos
   function getRandom(min, max) {
     return Math.random() * (max - min) + min;
   }
-  
+
   /* Creamos la función para que el topo se mueva a los segundos que queremos */
   function moveMole() {
     timerId = setInterval(randomSquare, getRandom(500, 1000)); //En este caso cada 1 segundo (1000)
@@ -88,13 +84,20 @@ const startGame = () => {
         <button id="reload">Reiniciar</button>
         </div>
         `;
-        
     }
-    const reload = document.getElementById('reload');
+    const reload = document.getElementById("reload");
 
-reload.addEventListener('click', _ => { // el _ es para indicar la ausencia de parametros
-    location.reload();
-});
+    reload.addEventListener("click", (_) => {
+      // el _ es para indicar la ausencia de parametros
+      const note = document.querySelector('.orden--gameOver');
+      note.style.display = 'none';
+      mole.style.display = 'none';
+      startGame();
+      musicStarGame.play();
+      setTimeout(() => {
+        musicStarGame.pause();
+      }, 15000);
+    });
   }
 
   // Invocamos la función de cuenta atrás haciendo que decrezca segundo a segundo
@@ -103,12 +106,11 @@ reload.addEventListener('click', _ => { // el _ es para indicar la ausencia de p
 
 //Al hacer click en start, se ejecuta el juego
 document.getElementById("btn-start").addEventListener("click", () => {
-  
   startGame();
   musicStarGame.play();
   setTimeout(() => {
     musicStarGame.pause();
-}, 15000);
+  }, 15000);
 });
 
 /*************************************************************************************************************************/
