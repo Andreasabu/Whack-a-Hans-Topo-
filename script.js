@@ -26,31 +26,28 @@ const startGame = () => {
     randomSquare.appendChild(mole); //Ponemos al topo en ese agujero
     console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
     hitPosition = randomSquare.id; // Guardamos externamente en qué posición está el topo
-    //Si no se ha dado click en el topo
-    squares.forEach((unidad) => {
-      // Recorremos los cuadrados de nuevo
-      unidad.removeChild(mole); // y eliminamos el topo (para no tener un topo por cada movimiento)
-    });
   }
 
   //Escuchamos si el usuario hace click en algún agujero que para ello realizamos un recorrido por todos los agujeros
   squares.forEach((square) => {
     square.addEventListener("click", () => {
       //Si el usuario ha dado click en el agujero donde está el top
-      if (square.id == hitPosition) {
-        square.firstChild.innerHTML = `
-        <img class="mole" src="./images/aliens/08.svg" >
-    `;
-        if (result >= 5) {
+      if (square.hasChildNodes()){
+        if (square.id == hitPosition) {
           square.firstChild.innerHTML = `
-        <img class="mole" src="./images/aliens/04.svg" >
-    `;
+          <img class="mole" src="./images/aliens/08.svg" >
+      `;
+          if (result >= 5) {
+            square.firstChild.innerHTML = `
+          <img class="mole" src="./images/aliens/04.svg" >
+      `;
+          }
+          shootGame.play();
+          result++; //Sumamos un punto
+          score.textContent = result;
+          hitPosition = null; //Cambiamos la posición del topo (por eso le damos el valor de null para que no pise)
+          square.removeChild(mole); //Eliminamos al topo de ese agujero
         }
-        shootGame.play();
-        result++; //Sumamos un punto
-        score.textContent = result;
-        hitPosition = null; //Cambiamos la posición del topo (por eso le damos el valor de null para que no pise)
-        square.removeChild(mole); //Eliminamos al topo de ese agujero
       }
     });
   });
@@ -81,25 +78,26 @@ const startGame = () => {
         <div class="orden--gameOver">
         <h2>GAME OVER</h2>
         <h5 class="caja">Final score: ${result}</h5>
-        <button id="reload">Reiniciar</button>
         </div>
         `;
+        // <button id="reload">Reiniciar</button>
     }
-    const reload = document.getElementById("reload");
-
-    reload.addEventListener("click", (_) => {
-      // el _ es para indicar la ausencia de parametros
-      const note = document.querySelector('.orden--gameOver');
-      note.style.display = 'none';
-      mole.style.display = 'none';
-      startGame();
-      musicStarGame.play();
-      setTimeout(() => {
-        musicStarGame.pause();
-      }, 15000);
-    });
+    
   }
 
+  // const reload = document.getElementById("reload");
+
+  //   reload.addEventListener("click", () => {
+  //     // el _ es para indicar la ausencia de parametros
+  //     const note = document.querySelector('.orden--gameOver');
+  //     note.style.display = 'none';
+  //     mole.style.display = 'none';
+  //     startGame();
+  //     musicStarGame.play();
+  //     setTimeout(() => {
+  //       musicStarGame.pause();
+  //     }, 15000);
+  //   });
   // Invocamos la función de cuenta atrás haciendo que decrezca segundo a segundo
   let countDownTimerId = setInterval(countDown, 1000);
 };
