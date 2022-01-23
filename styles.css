@@ -244,9 +244,10 @@ body {
   justify-content: center;
   background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
   background-color: #ededed;
-  border-radius: 3px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
   border: 2px solid #571f74;
-  cursor: url(./images/pow.svg) , auto;
+  cursor: url(./images/pow.svg) , auto!important;
 }
 .square:hover {
   padding: 10px;
@@ -254,9 +255,10 @@ body {
   justify-content: center;
   background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
   background-color: #ededed;
-  border-radius: 3px;
-  border: 4px solid #571f74;
-  cursor: url(./images/pow.svg) , auto;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  border: 4px solid #cb4431;
+  cursor: url(./images/cursor-freak.svg) , auto!important;
 }
 .info-game {
   max-width: 821px;
@@ -282,4 +284,21 @@ p.p-info {
   font-family: 'Orbitron', sans-serif;
   font-size: 14px;
   line-height: 25px;
+}
+button#reload {
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  font-size: 11px;
+  text-decoration: none;
+  background: linear-gradient(to bottom, #16011c 5%, #73208b 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 2px solid #16011c;
+  display: inline-block;
+  margin-top: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  padding: 5px 15px 5px 15px;
+  line-height: 1;
 }
