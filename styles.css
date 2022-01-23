@@ -7,19 +7,7 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #040303;
   color: white;
-}
-
-.container {
-  text-align: center ;
-  background: rgba(0, 0, 0, 0);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: fit-content;
-  margin: 1rem auto;
-  padding: 2rem;
-  text-transform: uppercase;
-  border: dashed 4px #B3541E;
+  background-image: url("./images/bk-arcade.jpg");
 }
 
 .mole {
@@ -36,17 +24,8 @@ body{
   margin: 0.5rem;
 }
 
-.gameInfo button {
-  height: 40px;
-  width: 60px;
-  color: white;
-  background: #A13333;
-  border: none;
-  border-radius: 10px;
-  justify-content: center ;
-  font-size: 1rem;
-  
-}
+
+
 .gameInfo button:hover {
   background: #B3541E;
   color: antiquewhite;
@@ -77,17 +56,6 @@ body{
 }
 .gameOver h2, p, h5{
   margin: 0;
-}
-.square {
-  margin: 15px;
-	height: 100px;
-	width: 100px;
-  background: linear-gradient(180deg, #ffffff00 70%, #461111 30%);
-}
-
-.square:hover {
-  cursor: pointer;
-  background: linear-gradient(180deg, #ffffff00 75%, #A13333 25%);
 }
 
 
@@ -190,173 +158,128 @@ body{
 }
 
 
-
-
-
-
-
-/* -------------------   Notion   ----------------------- 
-
-
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-
-html {
-  font-size: 35px;
-  background: #98bcf4;
-  font-family: Calibri;  
-  background-image: url("./images/background1.jpg");
-  background-size:120%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  text-align: center;
-
-}
-
-h1 {
-  text-align: center;
-  font-size: 40px;
-  line-height: 1;
-  margin-bottom: 0;
-  font-family: 'Rock Salt', cursive;
-}
-
-.score {
-  background: rgb(53, 132, 159);
-  padding: 0 48px;
-  line-height: 1;
-  border-radius: 16px;
-  color: #fff;
-  margin-left: 15px;
-  border: 2px solid black;
-}
-
-.game {
-  width: 600px;
-  height: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-}
-
-.hole {
-  flex: 1 0 33.33%;
-  overflow: hidden;
-  position: relative;
-}
-
-.hole:after {
-  display: block;
-  background: url("./images/dirt2.png") bottom center no-repeat;
+.container.arcade {
+  max-width: 1200px;
+  margin: auto;
+  height: 691px;
+  background-image: url("./images/retro-machine.png");
   background-size: contain;
-  content: "";
-  width: 50%;
-  height: auto;
-  position: absolute;
-  z-index: 2;
-  bottom: -30px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .mole {
-  background: url("./images/mole.png") bottom center no-repeat;
-  background-size: 80%;
+  height: 130px;
+  width: 130px;
   position: absolute;
-  top: 100%;
+  left: -15px;
+  bottom: -21px;
+}
+.container--game {
+  margin-top: 195px;
+}
+.gameInfo h2 {
+  margin: 3px;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+}
+.gameInfo button {
+  justify-content: center;
+  background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 1px solid #571f74;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 17px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  padding: 5px 15px 5px 15px;
+  line-height: 1;
+}
+.gameInfo button:hover {
+  background: linear-gradient(to bottom, #7e3382 5%, #0f010d 100%);
+  transition: 1s;
+}
+body { 
+  cursor: url('./images/cursor-freak.svg')
+, auto; 
+}
+.orden--gameOver {
+  position: absolute;
+  background: #2e0840;
+  padding: 10px;
+  border-radius: 11px;
+  justify-content: center;
+  background: linear-gradient(to bottom, #cb2d5b 5%, #9b141a 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 3px solid #6e0d24;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  text-align: center;
+  width: 550px;
+  left: 50%;
+  top: 405px;
+  font-size: 17px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  padding: 10px 25px 13px 25px;
+  line-height: 1;
+  margin-left: -275px;
+}
+.square {
+  margin: 0px 15px 15px 15px;
+  height: 80px;
   width: 100px;
-  height: auto;
-  transition: all 0.4s;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+  justify-content: center;
+  background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 2px solid #571f74;
+  cursor: url(./images/pow.svg) , auto;
 }
-
-.hole.up .mole {
-  top: 0;
+.square:hover {
+  padding: 10px;
+  border-radius: 11px;
+  justify-content: center;
+  background: linear-gradient(to bottom, #3d1449 5%, #0f010d 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 4px solid #571f74;
+  cursor: url(./images/pow.svg) , auto;
 }
-
-button {
-  width: 175px;
-  font-size: 35px;
-  height: 70px;
-  color: #fff;
-  background-color: rgb(53, 132, 159);
-  border-radius: 10px;
-  margin-left: 20px;
-  margin-top: 90px;
-  border: 2px solid black;
+.info-game {
+  max-width: 821px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #16011c;
+  margin-top: -35px;
+  padding: 15px;
+  border: 2px solid #480e59;
 }
-
-@media (min-width: 667px) and (max-width: 1024px) {
-  h1 {
-    display: none;
-  }
-  .score {
-    background: blue;
-    padding: 0 12px;
-    line-height: 1;
-    border-radius: 16px;
-    color: #fff;
-    font-size: 40px;
-    margin-left: 20px;
-  }
-
-  .hole.up .mole {
-    top: 17px;
-  }
+h1.title-info {
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 17px;
 }
-
-@media (max-width: 667px) {
-  .game {
-    width: 667px;
-    height: 300px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-  }
-
-  .score {
-    width: 35px;
-    font-size: 15px;
-    height: 40px;
-    color: #fff;
-    background-color: blue;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    padding: 5px;
-  }
-
-  button {
-    margin: 10px 10px 10px 10px;
-    height: 40px;
-    width: 75px;
-    font-size: 15px;
-  }
-
-  .hole:after {
-    display: block;
-    background: url("./images/dirt2.png") bottom center no-repeat;
-    background-size: contain;
-    content: "";
-    max-width: 70%;
-    height: 60px;
-    position: absolute;
-    z-index: 2;
-    bottom: -30px;
-  }
-
-  .mole {
-    background: url("./images/mole.png") bottom center no-repeat;
-    background-size: 60%;
-    position: absolute;
-    top: 100%;
-    max-width: 70%;
-    height: 70%;
-    transition: all 0.4s;
-  }
-
-  .hole.up .mole {
-    top: 50px;
-  }
-} */
+p.p-info {
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+}
