@@ -17,7 +17,7 @@ const startGame = () => {
   /* Creamos el topo */
   const mole = document.createElement("div");
   mole.innerHTML = `
-<img src="./images/mole.png" height="95" width="90">
+    <img class="mole" src="./images/mole.png" >
 `;
 
   function randomSquare() {
@@ -26,9 +26,9 @@ const startGame = () => {
     console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
     hitPosition = randomSquare.id; // Guardamos externamente en qué posición está el topo
     //Si no se ha dado click en el topo
-    squares.forEach((square) => {
+    squares.forEach((unidad) => {
       // Recorremos los cuadrados de nuevo
-      square.removeChild(mole); // y eliminamos el topo (para no tener un topo por cada movimiento)
+      unidad.removeChild(mole); // y eliminamos el topo (para no tener un topo por cada movimiento)
     });
   }
 
@@ -44,10 +44,14 @@ const startGame = () => {
       }
     });
   });
-
+  // Función para calcular el tiempo en el que salen los topos 
+  function getRandom(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  
   /* Creamos la función para que el topo se mueva a los segundos que queremos */
   function moveMole() {
-    timerId = setInterval(randomSquare, 1000); //En este caso cada 1 segundo (1000)
+    timerId = setInterval(randomSquare, getRandom(500, 1000)); //En este caso cada 1 segundo (1000)
   }
   //Movemos los topos por el tablero
   moveMole();
@@ -56,15 +60,16 @@ const startGame = () => {
   function countDown() {
     currentTime--; //Elimina 1 unidad
     timeLeft.textContent = currentTime;
+    if (currentTime == 1) {
+      clearInterval(timerId);
+    }
     /* Hacemos que cuando el contador llegue a 0 se muestre el cartel de game over */
     if (currentTime == 0) {
       clearInterval(countDownTimerId);
-      clearInterval(timerId);
       /* Añadimos etiquetas para que indique la puntuación final del juego */
       gameOver.innerHTML = `
-        <h2>GAME OVER!</h2>
+        <h2>GAME OVER</h2>
         <h5 class="caja">Final score: ${result}</h5>
-        <p class="caja2">your invention has won you over</p>
         `;
         
     }

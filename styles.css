@@ -22,7 +22,10 @@ body{
   border: dashed 4px #B3541E;
 }
 
-
+.mole {
+  height: 95px;
+  width: 90px;
+}
 
 .gameInfo {
   width: 100%;
