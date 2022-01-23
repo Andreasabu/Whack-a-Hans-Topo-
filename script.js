@@ -2,6 +2,7 @@
 const squares = document.querySelectorAll(".square");
 const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
+const reload = document.querySelector(".reload");
 const gameOver = document.querySelector(".gameOver");
 const musicStarGame = new Audio('./musica/musicaStart.mp3');
 const shootGame = new Audio('./musica/scifi002.mp3');
@@ -43,7 +44,7 @@ const startGame = () => {
     square.firstChild.innerHTML = `
         <img class="mole" src="./images/aliens/08.svg" >
     `;
-    if (result == 5) {
+    if (result >= 5) {
       square.firstChild.innerHTML = `
         <img class="mole" src="./images/aliens/04.svg" >
     `;
@@ -84,10 +85,16 @@ const startGame = () => {
         <div class="orden--gameOver">
         <h2>GAME OVER</h2>
         <h5 class="caja">Final score: ${result}</h5>
+        <button id="reload">Reiniciar</button>
         </div>
         `;
         
     }
+    const reload = document.getElementById('reload');
+
+reload.addEventListener('click', _ => { // el _ es para indicar la ausencia de parametros
+    location.reload();
+});
   }
 
   // Invocamos la función de cuenta atrás haciendo que decrezca segundo a segundo
@@ -103,7 +110,6 @@ document.getElementById("btn-start").addEventListener("click", () => {
     musicStarGame.pause();
 }, 15000);
 });
-
 
 /*************************************************************************************************************************/
 /* let lastHole;

@@ -283,3 +283,20 @@ p.p-info {
   font-size: 14px;
   line-height: 25px;
 }
+button#reload {
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  font-size: 11px;
+  text-decoration: none;
+  background: linear-gradient(to bottom, #16011c 5%, #73208b 100%);
+  background-color: #ededed;
+  border-radius: 3px;
+  border: 2px solid #16011c;
+  display: inline-block;
+  margin-top: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  padding: 5px 15px 5px 15px;
+  line-height: 1;
+}
