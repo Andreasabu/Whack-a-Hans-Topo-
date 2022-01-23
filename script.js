@@ -3,6 +3,8 @@ const squares = document.querySelectorAll(".square");
 const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
 const gameOver = document.querySelector(".gameOver");
+const musicStarGame = new Audio('./musica/musicaStart.mp3');
+const shootGame = new Audio('./musica/scifi002.mp3');
 
 
 //Función que ejecuta el juego
@@ -17,7 +19,7 @@ const startGame = () => {
   /* Creamos el topo */
   const mole = document.createElement("div");
   mole.innerHTML = `
-    <img class="mole" src="./images/mole.png" >
+    <img class="mole" src="./images/aliens/01.svg" >
 `;
 
   function randomSquare() {
@@ -35,14 +37,25 @@ const startGame = () => {
   //Escuchamos si el usuario hace click en algún agujero que para ello realizamos un recorrido por todos los agujeros
   squares.forEach((square) => {
     square.addEventListener("click", () => {
-      //Si el usuario ha dado click en el agujero donde está el topo
+      //Si el usuario ha dado click en el agujero donde está el top
       if (square.id == hitPosition) {
+        
+    square.firstChild.innerHTML = `
+        <img class="mole" src="./images/aliens/08.svg" >
+    `;
+    if (result == 5) {
+      square.firstChild.innerHTML = `
+        <img class="mole" src="./images/aliens/04.svg" >
+    `;
+    }
+    shootGame.play();
         result++; //Sumamos un punto
         score.textContent = result;
         hitPosition = null; //Cambiamos la posición del topo (por eso le damos el valor de null para que no pise)
         square.removeChild(mole); //Eliminamos al topo de ese agujero
       }
     });
+    
   });
   // Función para calcular el tiempo en el que salen los topos 
   function getRandom(min, max) {
@@ -68,8 +81,10 @@ const startGame = () => {
       clearInterval(countDownTimerId);
       /* Añadimos etiquetas para que indique la puntuación final del juego */
       gameOver.innerHTML = `
+        <div class="orden--gameOver">
         <h2>GAME OVER</h2>
         <h5 class="caja">Final score: ${result}</h5>
+        </div>
         `;
         
     }
@@ -81,7 +96,12 @@ const startGame = () => {
 
 //Al hacer click en start, se ejecuta el juego
 document.getElementById("btn-start").addEventListener("click", () => {
+  
   startGame();
+  musicStarGame.play();
+  setTimeout(() => {
+    musicStarGame.pause();
+}, 15000);
 });
 
 
