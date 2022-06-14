@@ -80,24 +80,10 @@ const startGame = () => {
         <h5 class="caja">Final score: ${result}</h5>
         </div>
         `;
-        // <button id="reload">Reiniciar</button>
     }
     
   }
 
-  // const reload = document.getElementById("reload");
-
-  //   reload.addEventListener("click", () => {
-  //     // el _ es para indicar la ausencia de parametros
-  //     const note = document.querySelector('.orden--gameOver');
-  //     note.style.display = 'none';
-  //     mole.style.display = 'none';
-  //     startGame();
-  //     musicStarGame.play();
-  //     setTimeout(() => {
-  //       musicStarGame.pause();
-  //     }, 15000);
-  //   });
   // Invocamos la función de cuenta atrás haciendo que decrezca segundo a segundo
   let countDownTimerId = setInterval(countDown, 1000);
 };
