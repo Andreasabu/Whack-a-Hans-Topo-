@@ -2,7 +2,6 @@
 const squares = document.querySelectorAll(".square");
 const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
-const reload = document.querySelector(".reload");
 const gameOver = document.querySelector(".gameOver");
 const musicStarGame = new Audio("./musica/musicaStart.mp3");
 const shootGame = new Audio("./musica/scifi002.mp3");
@@ -21,12 +20,26 @@ const startGame = () => {
     <img class="mole" src="./images/aliens/01.svg" >
 `;
 
-  function randomSquare() {
+// Ponemos el topo en un agujero y guardamos la posición
+  const randomSquare = () => {
     let randomSquare = squares[Math.floor(Math.random() * 9)]; // Seleccionamos el proximo agujero donde va a salir el topo
     randomSquare.appendChild(mole); //Ponemos al topo en ese agujero
-    console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
+    // console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
     hitPosition = randomSquare.id; // Guardamos externamente en qué posición está el topo
   }
+
+  // Función para calcular el tiempo en el que salen los topos
+  const getRandom = (min, max) => {
+    return (max - min) + min;
+  }
+  console.log(getRandom(500, 1000))
+
+  /* Creamos la función para que el topo se mueva a los segundos que queremos */
+  function moveMole() {
+    timerId = setInterval(randomSquare, getRandom(500, 1000)); //En este caso cada 1 segundo (1000)
+  }
+  //Movemos los topos por el tablero
+  moveMole();
 
   //Escuchamos si el usuario hace click en algún agujero que para ello realizamos un recorrido por todos los agujeros
   squares.forEach((square) => {
@@ -51,17 +64,7 @@ const startGame = () => {
       }
     });
   });
-  // Función para calcular el tiempo en el que salen los topos
-  function getRandom(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  /* Creamos la función para que el topo se mueva a los segundos que queremos */
-  function moveMole() {
-    timerId = setInterval(randomSquare, getRandom(500, 1000)); //En este caso cada 1 segundo (1000)
-  }
-  //Movemos los topos por el tablero
-  moveMole();
+  
 
   /* Realizamos la cuenta atrás del contador del juego*/
   function countDown() {
