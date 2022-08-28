@@ -1,0 +1,42 @@
+/* Seleccionamos los elementos de HTML */
+const squares = document.querySelectorAll(".square");
+const score = document.getElementById("score");
+const timeLeft = document.getElementById("timeLeft");
+const gameOver = document.querySelector(".gameOver");
+const musicStartGame = new Audio("./musica/musicaStart.mp3");
+const shootGame = new Audio("./musica/scifi002.mp3");
+
+/* Función que ejecuta el juego */
+const startGame = () => {
+
+  // Creamos las variables iniciales del juego
+  let result = 0;
+  let currentTime = 15;
+  let hitPosition = '';
+  let timerId = null;
+
+  // Creamos el topo
+  const mole = document.createElement('div');
+  mole.innerHTML = `
+  <img class="mole" src="./images/aliens/01.svg">
+  `;
+  
+  
+  
+
+};
+
+
+
+// Damos movimiento al topo
+
+
+// Escuchamos dónde hace click el usuario y si hace match con el topo
+
+// Función para calcular el tiempo en el que salen el topo
+
+// Fución para calcular de manera variable el tiempo que está en cada square
+
+// Cuenta atrás del contador del juego e invocación
+
+/* Click y startGame */
