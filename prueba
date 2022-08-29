@@ -1,15 +1,14 @@
 /* Seleccionamos los elementos de HTML */
-const squares = document.querySelectorAll(".square");
-const score = document.getElementById("score");
-const timeLeft = document.getElementById("timeLeft");
-const gameOver = document.querySelector(".gameOver");
-const musicStartGame = new Audio("./musica/musicaStart.mp3");
-const shootGame = new Audio("./musica/scifi002.mp3");
+const score = document.getElementById('score');
+const timeLeft = document.getElementById('time-left');
+const squares = document.querySelectorAll('.square');
+const gameOver = document.querySelector('.gameOver');
+const musicStartGame = new Audio('./musica/musicaStart.mp3');
+const shootGame = new Audio('./musica/scifi002.mp3');
 
-/* Función que ejecuta el juego */
+// Inicializamos el juego
 const startGame = () => {
-
-  // Creamos las variables iniciales del juego
+  // Creamos las variables con los valores iniciales del juego
   let result = 0;
   let currentTime = 15;
   let hitPosition = '';
@@ -18,25 +17,17 @@ const startGame = () => {
   // Creamos el topo
   const mole = document.createElement('div');
   mole.innerHTML = `
-  <img class="mole" src="./images/aliens/01.svg">
+    <img class="mole" src="./images/aliens/01.svg">
   `;
+
+  // Hacemos que el topo se mueva por los squares de manera aleatoria y guarde la posición
+  const randomSquare = () => {
+    let randomSquare = squares[Math.floor(Math.random() *9)];
+    randomSquare.appendChild(mole)
+    hitPosition = randomSquare.id;
+  }
+
+  // Función en la que calculamos el tiempo en el que salen los topos
   
-  
-  
 
-};
-
-
-
-// Damos movimiento al topo
-
-
-// Escuchamos dónde hace click el usuario y si hace match con el topo
-
-// Función para calcular el tiempo en el que salen el topo
-
-// Fución para calcular de manera variable el tiempo que está en cada square
-
-// Cuenta atrás del contador del juego e invocación
-
-/* Click y startGame */
+}

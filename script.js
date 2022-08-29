@@ -24,7 +24,7 @@ const startGame = () => {
   const randomSquare = () => {
     let randomSquare = squares[Math.floor(Math.random() * 9)]; // Seleccionamos el proximo agujero donde va a salir el topo
     randomSquare.appendChild(mole); //Ponemos al topo en ese agujero
-    // console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
+    console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
     hitPosition = randomSquare.id; // Guardamos externamente en qué posición está el topo
   }
 
@@ -32,7 +32,7 @@ const startGame = () => {
   const getRandom = (min, max) => {
     return (max - min) + min;
   }
-  console.log(getRandom(500, 1000))
+  // console.log(getRandom(500, 1000))
 
   /* Creamos la función para que el topo se mueva a los segundos que queremos */
   function moveMole() {

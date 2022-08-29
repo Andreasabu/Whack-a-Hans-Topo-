@@ -28,7 +28,21 @@
 <ul>
   <li>Andrea</li>  
   <li>Alfonso</li>  
-  <li>Emely</li>  
+  <li>Emely<Creamos las variables con los valores iniciales del juego/li>  
   <li>Irene</li>  
   <li>Sergio</li>  
 </ul>
+
+<!-- PROCESO -->
+a. Seleccionamos los elementos HTML e inicializamos el juego
+b. 
+c. Nos enfocamos en el topo
+  1. Creamos el topo
+  2. Hacemos que el topo se mueva por los squares de manera aleatoria y guarde la posición
+  3. Función para calcular el tiempo en el que salen los topos
+  4. Función que combina el tiempo en el que salen los topos y su movimiento aleatorio por los squares
+  5. Invocamos al topo
+d. Recogemos el click del usuario en el topo o el square
+e. Función con la cuenta atrás
+f. Ejecución del juego
+
