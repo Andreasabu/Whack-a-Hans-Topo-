@@ -1,33 +1,81 @@
 /* Seleccionamos los elementos de HTML */
 const score = document.getElementById('score');
 const timeLeft = document.getElementById('time-left');
+const btnStart = document.getElementById('btn-start');
 const squares = document.querySelectorAll('.square');
-const gameOver = document.querySelector('.gameOver');
-const musicStartGame = new Audio('./musica/musicaStart.mp3');
-const shootGame = new Audio('./musica/scifi002.mp3');
+const gameOver = document.querySelector(".gameOver");
 
 // Inicializamos el juego
 const startGame = () => {
   // Creamos las variables con los valores iniciales del juego
   let result = 0;
   let currentTime = 15;
-  let hitPosition = '';
+  let hitPosition;
   let timerId = null;
 
   // Creamos el topo
   const mole = document.createElement('div');
   mole.innerHTML = `
-    <img class="mole" src="./images/aliens/01.svg">
-  `;
+    <img class="mole" src="./images/aliens/01.svg"/>
+  `;  
 
   // Hacemos que el topo se mueva por los squares de manera aleatoria y guarde la posición
   const randomSquare = () => {
-    let randomSquare = squares[Math.floor(Math.random() *9)];
+    let randomSquare = squares[Math.floor(Math.random() * 9)];
     randomSquare.appendChild(mole)
     hitPosition = randomSquare.id;
   }
 
   // Función en la que calculamos el tiempo en el que salen los topos
-  
+  const getRandom = (min, max) => {
+    return (max - min) + min;
+  }
 
+  // Función que combina el tiempo en el que salen los topos y el paso de un square a otro
+  const moveMole = () => {
+    timerId = setInterval(randomSquare, getRandom(500, 1000))
+  }
+  moveMole();
+
+  // Recogemos el click del usuario en el topo o en el Square
+ squares.forEach(item => {
+  item.addEventListener('click', () => {
+    if(item.id === hitPosition) {
+      item.firstChild.innerHTML = `
+      <img class="mole" src="./images/aliens/08.svg" >
+      `;
+      result++;
+      score.textContent = result;
+      hitPosition = null;
+      item.removeChild(mole);
+    }
+  })
+ })
+
+// Función con la cuenta atrás
+
+const countDown = () => {
+  currentTime--;
+  timeLeft.textContent = currentTime;
+  if (currentTime === 1) {
+    clearInterval(timerId)
+  }
+  if(currentTime === 0) {
+   clearInterval()
+    gameOver.innerHTML = `
+    <div class="orden--gameOver">
+    <h2>GAME OVER</h2>
+    <h5 class="caja">Final score: ${result}</h5>
+    </div>
+    `;
+  }
 }
+  
+// Invocamos la función de cuenta atrás
+let countDownTimerId = setInterval(countDown, 1000)
+};
+
+// Ejecución del juego
+btnStart.addEventListener('click', () => {
+  startGame()
+})

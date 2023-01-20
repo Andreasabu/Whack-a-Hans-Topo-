@@ -23,6 +23,7 @@ const startGame = () => {
 // Ponemos el topo en un agujero y guardamos la posición
   const randomSquare = () => {
     let randomSquare = squares[Math.floor(Math.random() * 9)]; // Seleccionamos el proximo agujero donde va a salir el topo
+    console.log(randomSquare)
     randomSquare.appendChild(mole); //Ponemos al topo en ese agujero
     console.log(`estoy en ${randomSquare.id}`); // Comprobamos en qué cuadrado estamos
     hitPosition = randomSquare.id; // Guardamos externamente en qué posición está el topo
